@@ -24,6 +24,21 @@ export default class PhoneBook extends Component {
     finedId: shortid.generate()
   };
 
+  componentDidMount() {
+    if (localStorage.getItem("localData") !== null) {
+      this.setState({
+        contacts: JSON.parse(localStorage.getItem("localData"))
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem("localData", JSON.stringify(contacts));
+    }
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
