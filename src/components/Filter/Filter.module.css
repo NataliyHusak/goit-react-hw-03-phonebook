@@ -1,0 +1,25 @@
+.form__filter {
+  min-width: 320px;
+  max-width: 640px;
+  color:  black;
+}
+.form__name-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  font-size: 24px;
+}
+.form__name-input {
+  width: 100%;
+  padding: 10px;
+  color: black;
+  border: 1px solid transparent;
+  border-bottom: 2px solid  black;
+  font-size: 24px;
+}
+.form__name-input::placeholder {
+  color: rgb(204, 204, 223);
+}
