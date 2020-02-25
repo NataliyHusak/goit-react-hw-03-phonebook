@@ -17,12 +17,7 @@
   margin: 10px;
   border: 2px solid black;
   border-radius: 10px;
-}
-.item-name {
-  font-size: 32px;
-}
-.item-number {
-  font-size: 24px;
+  font-size: 28px;
 }
 .button {
   display: block;
@@ -31,7 +26,8 @@
   margin: 10px auto;
   color: black;
   background: rgb(201, 200, 255);
-  border: 2px solid  black;
+  border: 2px solid black;
   border-radius: 10px;
   cursor: pointer;
+  font-size: 20px;
 }

@@ -2,21 +2,21 @@
   width: 320px;
   color: black;
 }
-.name-title {
+.title {
   display: flex;
   justify-content: space-between;
   width: 300px;
   margin: 10px;
   font-size: 24px;
 }
-.name-input {
+.input {
   width: 70%;
   color: black;
   border: 1px solid transparent;
   border-bottom: 2px solid black;
   font-size: 24px;
 }
-.name-input::placeholder {
+.nameInput::placeholder {
   color: rgb(204, 204, 223);
 }
 .button {

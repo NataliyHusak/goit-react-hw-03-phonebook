@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import shortid from "shortid";
-import Styles from "./ContactForm.module.css";
+import styles from "./ContactForm.module.css";
 
 export default class ContactForm extends Component {
   handleChange = e => {
@@ -20,43 +20,41 @@ export default class ContactForm extends Component {
     const { htmlFor } = this.props;
     const { nameId, numberId } = htmlFor;
     const { name, number } = this.state;
-    const verificationLength = name.length === 0 || number.length === 0;
+    const verificationLength = !name.length || !number.length;
     const verificationNumber = Number.isNaN(Number(number)) || number === null;
     const submitVerification = verificationLength || verificationNumber;
     return (
-      <>
-        <form onSubmit={this.handleSubmit} className={Styles.contact}>
-          <label htmlFor={nameId} className={Styles["name-title"]}>
-            Name
-            <input
-              className={Styles["name-input"]}
-              onChange={this.handleChange}
-              value={name}
-              name="name"
-              type="text"
-              placeholder="Input name"
-            />
-          </label>
-          <label htmlFor={numberId} className={Styles["name-title"]}>
-            Number
-            <input
-              className={Styles["name-input"]}
-              onChange={this.handleChange}
-              value={number}
-              name="number"
-              type="number"
-              placeholder="Input phone"
-            />
-          </label>
-          <button
-            disabled={submitVerification}
-            type="submit"
-            className={!submitVerification ? Styles.button : Styles.disabled}
-          >
-            Add contact
-          </button>
-        </form>
-      </>
+      <form onSubmit={this.handleSubmit} className={styles.contact}>
+        <label htmlFor={nameId} className={styles.title}>
+          Name
+          <input
+            className={styles.input}
+            onChange={this.handleChange}
+            value={name}
+            name="name"
+            type="text"
+            placeholder="Input name"
+          />
+        </label>
+        <label htmlFor={numberId} className={styles.title}>
+          Number
+          <input
+            className={styles.input}
+            onChange={this.handleChange}
+            value={number}
+            name="number"
+            type="number"
+            placeholder="Input phone"
+          />
+        </label>
+        <button
+          disabled={submitVerification}
+          type="submit"
+          className={!submitVerification ? styles.button : styles.disabled}
+        >
+          Add contact
+        </button>
+      </form>
     );
   }
 
@@ -70,6 +68,6 @@ export default class ContactForm extends Component {
 
   state = {
     name: "",
-    number: '',
+    number: ""
   };
 }

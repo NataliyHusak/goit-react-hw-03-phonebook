@@ -3,7 +3,7 @@ import shortid from "shortid";
 import ContactForm from "../ContactForm/ContactForm";
 import Filter from "../Filter/Filter";
 import ContactList from "../ContactList/ContactList";
-import Styles from "./PhoneBook.module.css";
+import styles from "./PhoneBook.module.css";
 
 export default class PhoneBook extends Component {
   state = {
@@ -74,13 +74,13 @@ export default class PhoneBook extends Component {
       return nameContact.toLowerCase().includes(filter.toLowerCase());
     });
     return (
-      <section className={Styles.section}>
-        <h1 className={Styles.title}>Phonebook</h1>
+      <section className={styles.section}>
+        <h1 className={styles.title}>Phonebook</h1>
         <ContactForm
           onSubmit={this.handleSubmit}
           htmlFor={{ nameId, numberId }}
         />
-        <h2 className={Styles.subTitle}>Contacts</h2>
+        <h2 className={styles.subTitle}>Contacts</h2>
         {contacts.length > 1 && (
           <Filter
             onChange={this.handleChange}
