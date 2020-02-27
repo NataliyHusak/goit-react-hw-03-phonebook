@@ -5,7 +5,8 @@ import styles from "./ContactForm.module.css";
 
 export default class ContactForm extends Component {
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    const el = e.target;
+    this.setState({ [el.name]: el.value });
   };
 
   handleSubmit = e => {
