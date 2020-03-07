@@ -4,9 +4,21 @@ import shortid from "shortid";
 import styles from "./ContactForm.module.css";
 
 export default class ContactForm extends Component {
+  state = {
+    name: "",
+    number: ""
+  };
+
+  // handleChange = contacts => {
+  //   const contact = contacts.target;
+  //   this.setState({ [contact.name]: contact.value });
+  // };
+
   handleChange = e => {
-    const el = e.target;
-    this.setState({ [el.name]: el.value });
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    });
   };
 
   handleSubmit = e => {
@@ -22,7 +34,7 @@ export default class ContactForm extends Component {
     const { nameId, numberId } = htmlFor;
     const { name, number } = this.state;
     const verificationLength = !name.length || !number.length;
-    const verificationNumber = Number.isNaN(Number(number)) || number === null;
+    const verificationNumber = Number.isNaN(Number(number));
     const submitVerification = verificationLength || verificationNumber;
     return (
       <form onSubmit={this.handleSubmit} className={styles.contact}>
@@ -63,12 +75,7 @@ export default class ContactForm extends Component {
     onSubmit: PropTypes.func.isRequired,
     htmlFor: PropTypes.shape({
       nameId: PropTypes.string.isRequired,
-      numberId: PropTypes.number.isRequired
+      numberId: PropTypes.string.isRequired
     }).isRequired
-  };
-
-  state = {
-    name: "",
-    number: ""
   };
 }

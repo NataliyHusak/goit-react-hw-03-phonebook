@@ -41,20 +41,18 @@ export default class PhoneBook extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = contact => {
     const { contacts } = this.state;
-    const { name } = e;
+    const { name } = contact;
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
-      const message = `${name} is already is contacts`;
-
-      return alert(message);
+      return alert(`${name} is already is contacts`);
     }
     this.setState({
-      contacts: [...contacts, e]
+      contacts: [...contacts, contact]
     });
   };
 
@@ -68,8 +66,7 @@ export default class PhoneBook extends Component {
     const { contacts, filter } = this.state;
     const { nameId, numberId, finedId } = this.inputIds;
     const filterContacts = contacts.filter(contact => {
-      const nameContact = contact.name;
-      return nameContact.toLowerCase().includes(filter.toLowerCase());
+      return contact.name.toLowerCase().includes(filter.toLowerCase());
     });
     return (
       <section className={styles.section}>
